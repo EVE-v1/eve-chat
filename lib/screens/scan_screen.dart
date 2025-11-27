@@ -104,9 +104,18 @@ class _ScanScreenState extends State<ScanScreen> {
       backgroundColor: Colors.black,
       appBar: AppBar(
         backgroundColor: Colors.black,
-        title: const Text(
-          'Eve Chat',
-          style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold),
+        title: Row(
+          children: [
+            Image.asset('assets/logo.jpg', height: 32, width: 32),
+            const SizedBox(width: 12),
+            const Text(
+              'Eve Chat',
+              style: TextStyle(
+                color: Colors.white,
+                fontWeight: FontWeight.bold,
+              ),
+            ),
+          ],
         ),
       ),
       body: Column(

@@ -1,5 +1,4 @@
 import 'dart:async';
-import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:audioplayers/audioplayers.dart';
 import 'package:path_provider/path_provider.dart';
@@ -7,7 +6,6 @@ import 'package:record/record.dart';
 import 'package:permission_handler/permission_handler.dart';
 import '../models/message_model.dart';
 import '../services/nearby_service.dart';
-import '../widgets/message_bubble.dart';
 
 class ChatScreen extends StatefulWidget {
   final String deviceName;
