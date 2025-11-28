@@ -18,11 +18,15 @@ class NearbyService {
       StreamController.broadcast();
   final StreamController<Map<String, dynamic>> _connectionStatusController =
       StreamController.broadcast();
+  final StreamController<Map<String, dynamic>> _signalingController =
+      StreamController.broadcast();
 
   Stream<List<String>> get discoveredDevices => _devicesController.stream;
   Stream<MessageModel> get messages => _messageController.stream;
   Stream<Map<String, dynamic>> get connectionStatus =>
       _connectionStatusController.stream;
+  Stream<Map<String, dynamic>> get signalingMessages =>
+      _signalingController.stream;
 
   final Map<String, String> _discoveredDevices = {}; // endpointId -> name
   String? _connectedEndpoint;
@@ -102,6 +106,16 @@ class NearbyService {
 
             String? audioPath;
             Duration? audioDuration;
+
+            // Handle WebRTC signaling messages
+            if (type == MessageType.offer ||
+                type == MessageType.answer ||
+                type == MessageType.candidate) {
+              // These are handled by WebRTCService, not displayed as chat messages
+              // Just pass the data through a signaling stream
+              _signalingController.add({'type': type, 'data': data});
+              return; // Don't add to message list
+            }
 
             if (type == MessageType.audio && data['audioData'] != null) {
               // Save audio bytes to file
@@ -210,5 +224,6 @@ class NearbyService {
     _devicesController.close();
     _messageController.close();
     _connectionStatusController.close();
+    _signalingController.close();
   }
 }

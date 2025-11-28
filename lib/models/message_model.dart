@@ -1,4 +1,4 @@
-enum MessageType { text, audio }
+enum MessageType { text, audio, offer, answer, candidate }
 
 class MessageModel {
   final String id;

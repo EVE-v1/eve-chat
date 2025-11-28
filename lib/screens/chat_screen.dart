@@ -6,6 +6,7 @@ import 'package:record/record.dart';
 import 'package:permission_handler/permission_handler.dart';
 import '../models/message_model.dart';
 import '../services/nearby_service.dart';
+import 'call_screen.dart';
 
 class ChatScreen extends StatefulWidget {
   final String deviceName;
@@ -167,6 +168,19 @@ class _ChatScreenState extends State<ChatScreen> {
     }
   }
 
+  void _startCall(bool isVideo) {
+    Navigator.push(
+      context,
+      MaterialPageRoute(
+        builder: (context) => CallScreen(
+          deviceName: widget.deviceName,
+          isVideo: isVideo,
+          isCaller: true,
+        ),
+      ),
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -196,6 +210,18 @@ class _ChatScreenState extends State<ChatScreen> {
             ),
           ],
         ),
+        actions: [
+          // Voice call button
+          IconButton(
+            icon: const Icon(Icons.call, color: Colors.white),
+            onPressed: _isConnected ? () => _startCall(false) : null,
+          ),
+          // Video call button
+          IconButton(
+            icon: const Icon(Icons.videocam, color: Colors.white),
+            onPressed: _isConnected ? () => _startCall(true) : null,
+          ),
+        ],
       ),
       body: Column(
         children: [
