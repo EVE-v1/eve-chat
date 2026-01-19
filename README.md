@@ -1,20 +1,3 @@
-# evechatv1
-
-A new Flutter project.
-
-## Getting Started
-
-This project is a starting point for a Flutter application.
-
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
-
 # Eve Chat
 [![Ask DeepWiki](https://devin.ai/assets/askdeepwiki.png)](https://deepwiki.com/EVE-v1/eve-chat)
 
@@ -57,25 +40,6 @@ The application leverages Google's **Nearby Connections API** for the initial de
 *   Flutter SDK installed.
 *   Two physical Android or iOS devices. The application relies on hardware features not available in emulators/simulators.
 
-### Installation & Running
-
-1.  **Clone the repository:**
-    ```sh
-    git clone https://github.com/EVE-v1/eve-chat.git
-    cd eve-chat
-    ```
-
-2.  **Install dependencies:**
-    ```sh
-    flutter pub get
-    ```
-
-3.  **Run the application on two devices:**
-    ```sh
-    flutter run
-    ```
-    You will need to run this command for each device, targeting their respective device IDs.
-
 ### Usage
 
 1.  On both devices, enter a username.
@@ -90,21 +54,3 @@ The app requires the following permissions to function correctly:
 
 *   **Android**: `BLUETOOTH_SCAN`, `BLUETOOTH_ADVERTISE`, `BLUETOOTH_CONNECT`, `NEARBY_WIFI_DEVICES`, `ACCESS_FINE_LOCATION`, `RECORD_AUDIO`, `CAMERA`.
 *   **iOS**: `NSBluetoothAlwaysUsageDescription`, `NSBluetoothPeripheralUsageDescription`. Microphone and Camera permissions are requested at runtime when a call is initiated.
-
-## Project Structure
-
-```
-lib/
-├── main.dart             # App entry point and theme setup
-├── models/               # Data models
-│   ├── device_model.dart
-│   └── message_model.dart
-├── screens/              # UI screens
-│   ├── scan_screen.dart    # Device discovery and advertising
-│   ├── chat_screen.dart    # Chat and call initiation UI
-│   └── call_screen.dart    # Voice/video call UI
-├── services/             # Business logic and service wrappers
-│   ├── nearby_service.dart # Manages Nearby Connections API
-│   └── webrtc_service.dart # Manages WebRTC lifecycle for calls
-└── widgets/              # Reusable UI widgets
-    └── message_bubble.dart
