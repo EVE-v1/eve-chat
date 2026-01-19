@@ -1,5 +1,4 @@
 # Eve Chat
-[![Ask DeepWiki](https://devin.ai/assets/askdeepwiki.png)](https://deepwiki.com/EVE-v1/eve-chat)
 
 Eve Chat is a cross-platform Flutter application designed for local, serverless, peer-to-peer communication. It allows users on the same local network to discover each other and engage in text chat, voice messaging, and real-time voice and video calls without needing an internet connection or a central server.
 
@@ -54,3 +53,4 @@ The app requires the following permissions to function correctly:
 
 *   **Android**: `BLUETOOTH_SCAN`, `BLUETOOTH_ADVERTISE`, `BLUETOOTH_CONNECT`, `NEARBY_WIFI_DEVICES`, `ACCESS_FINE_LOCATION`, `RECORD_AUDIO`, `CAMERA`.
 *   **iOS**: `NSBluetoothAlwaysUsageDescription`, `NSBluetoothPeripheralUsageDescription`. Microphone and Camera permissions are requested at runtime when a call is initiated.
+
